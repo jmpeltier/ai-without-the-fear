@@ -1,6 +1,6 @@
-# Instructor notes: how chatbots work (Parts 1 to 5)
+# Instructor notes: how chatbots work (Parts 1 to 6)
 
-## Part 1. Where AI came from (8 min)
+## Part 1. Where AI came from (7 min)
 
 - Open with the punchline. AI is over 75 years old (Turing, 1950). The "AI" phrase itself comes from the 1955 proposal for the 1956 Dartmouth workshop.
 - ELIZA (1966) is the human story. Weizenbaum's secretary asked him to leave the room so she could talk to it. People trusted a very simple chatbot, and that tendency matters for scams later.
@@ -25,7 +25,7 @@
 
 **Likely question.** "So does it actually understand anything?" *Plain answer:* It understands patterns in language extremely well, well enough to be very useful. It does not check facts against the world the way you do, so for anything important you still verify.
 
-## Part 3. How AI reads: tokens (4 min)
+## Part 3. How AI reads: tokens (3 min)
 
 - A token is a chunk of text, often a whole common word, sometimes a piece of a longer word.
 - Rule of thumb. About 4 letters, or roughly three-quarters of a word, per token in English. Google's docs put 100 tokens at about 60 to 80 English words.
@@ -37,7 +37,7 @@
 
 **Likely question.** "Why should I care about tokens?" *Plain answer:* Mostly you don't need to. It just explains why chatbots can be oddly bad at spelling and counting letters, and why some services limit how long your message can be.
 
-## Part 4. The big breakthrough: attention (5 min)
+## Part 4. The big breakthrough: attention (4 min)
 
 - Attention means reading the whole sentence at once and working out which words matter to each other.
 - The trophy and suitcase sentence is a classic test for computers, from Hector Levesque's "Winograd schemas." People find it trivial. Older computer programs did not.
@@ -49,7 +49,20 @@
 
 **Likely question.** "Did Google invent ChatGPT then?" *Plain answer:* Google researchers invented the transformer design in 2017 and published it openly. OpenAI built ChatGPT on that design, and now nearly every company uses it.
 
-## Part 5. Train a tiny AI (5 min)
+## Part 5. Watch AI write a sentence (5 min)
+
+- This part ties Parts 2, 3 and 4 together. Every new word is one full trip through the model, in five steps: read the tokens, turn them into numbers, pay attention, guess, then pick and add.
+- Use "Next step" to narrate the first word yourself. Then press Play and let the sentence finish on its own while you talk.
+- Numbers step. Every token becomes a long list of numbers. Ours shows 6 made-up ones. Meta reports its Llama 3 models use 4,096 to 16,384 numbers per token.
+- Attention step. The thick lines are the words the newest word leans on most. It runs in layers, each one refining the last. Our demo shows 3. Meta's biggest Llama 3 has 126.
+- The punchline is the end card. A long chatbot answer is this same loop run hundreds or thousands of times, very fast. Every weight and percentage here is hand-made for teaching.
+- Try "Summers in Georgia are" for a laugh. It ends on "y'all."
+
+**Play-along moment.** "Pick any starting sentence and press Play. Watch the dots at the top. Raise your hand when your sentence is finished." Then ask "Did yours ever choose a word that was not the top guess?" (No. This demo always takes the top word. Part 2's creativity dial is what changes that.)
+
+**Likely question.** "Does it plan the whole answer before it starts typing?" *Plain answer:* It writes one token at a time, and each one is chosen fresh based on everything so far, including its own earlier words. Researchers have found that models can plan a few words ahead internally (Anthropic found Claude picking a rhyme before writing the line that leads to it, https://www.anthropic.com/research/tracing-thoughts-language-model, March 2025), but what comes out is still one token after another. That's why it can talk itself into a mistake, and why reading the whole answer matters.
+
+## Part 6. Train a tiny AI (4 min)
 
 - This is a real model, trained live on their phone. It counts which word follows which (a "bigram" or word-pair counter).
 - Show the counts after training (words read, different words, word pairs). Then Generate a few times. It produces near-sense, near-nonsense. That is the point.
