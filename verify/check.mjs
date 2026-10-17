@@ -29,6 +29,8 @@ for (const vp of VIEWPORTS) {
       if (overflow > 1) problems.push(`horizontal overflow ${overflow}px`);
       if (text.includes('Coming soon')) problems.push('still a stub');
       if (text.trim().length < 40) problems.push('nearly empty');
+      if (text.includes('[object ')) problems.push('stringified object in page text');
+      if (/\bundefined\b|\bNaN\b/.test(text)) problems.push('undefined or NaN in page text');
       const label = `${vp.name}-${scheme}-${route || 'home'}`;
       if (scheme === 'light' || vp.name === 'phone') await page.screenshot({ path: `shots/${label}.png`, fullPage: true });
       if (problems.length) { failures++; console.log(`FAIL ${label}: ${problems.join('; ')}`); }

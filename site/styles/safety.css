@@ -1,0 +1,66 @@
+#sec-safe-use .safe-score { font-weight: 700; }
+#sec-safe-use .safe-item-q { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4em; }
+#sec-safe-use .safe-choices { grid-template-columns: repeat(3, 1fr); }
+#sec-safe-use .safe-choices .choice { text-align: center; padding: 10px 6px; }
+#sec-safe-use .safe-reveal .callout { margin: 4px 0 0; }
+#sec-safe-use .safe-tools { list-style: none; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+#sec-safe-use .safe-tools .card { margin: 0; }
+#sec-safe-use .safe-site { color: var(--ink-soft); }
+#sec-safe-use .safe-settings dt { font-weight: 700; margin-top: 0.8em; }
+#sec-safe-use .safe-settings dd { margin: 0.2em 0 0; }
+#sec-safe-use .safe-tips ol { margin: 0; padding-left: 1.3em; }
+#sec-safe-use .safe-tips li { margin-bottom: 0.5em; }
+#sec-safe-use .safe-eg { color: var(--ink-soft); font-style: italic; }
+#sec-safe-use .safe-prompt-text {
+  background: var(--surface-2); border-radius: 10px; padding: 12px 14px;
+  user-select: text; -webkit-user-select: text;
+}
+
+#sec-scams .scam-story { font-size: 1.1rem; background: var(--surface-2); border-radius: 10px; padding: 14px; }
+#sec-scams .scam-choices { grid-template-columns: 1fr 1fr; }
+#sec-scams .scam-choices .choice { text-align: center; font-size: 1.1rem; font-weight: 700; }
+#sec-scams .scam-label { font-weight: 700; margin: 0 0 0.2em; }
+#sec-scams .callout ul { margin: 0 0 0.8em; padding-left: 1.2em; }
+#sec-scams .scam-quiz { scroll-margin-top: 80px; }
+#sec-scams .scam-final { text-align: center; }
+#sec-scams .scam-builder { text-align: center; }
+#sec-scams .scam-safeword {
+  font-size: 2rem; font-weight: 800; color: var(--accent);
+  min-height: 1.5em; margin: 0.2em 0 0.6em; overflow-wrap: anywhere;
+}
+#sec-scams .scam-small { font-size: 0.9rem; color: var(--ink-soft); margin: 0.8em 0 0; }
+#sec-scams .scam-steps { padding-left: 0; list-style: none; counter-reset: step; }
+#sec-scams .scam-steps li { counter-increment: step; position: relative; padding-left: 58px; }
+#sec-scams .scam-steps li::before {
+  content: counter(step); position: absolute; left: 16px; top: 16px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink);
+  display: grid; place-items: center; font-weight: 800;
+}
+
+#sec-takeaways .take-ideas { list-style: none; padding: 0; margin: 0; }
+#sec-takeaways .take-ideas li { display: flex; gap: 14px; align-items: flex-start; font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; padding: 14px 16px; }
+#sec-takeaways .take-icon { font-size: 1.6rem; line-height: 1.2; }
+#sec-takeaways .take-glossary div { padding: 10px 0; border-bottom: 1px solid var(--line); }
+#sec-takeaways .take-glossary dt { font-weight: 800; }
+#sec-takeaways .take-glossary dd { margin: 0.1em 0 0; }
+#sec-takeaways .take-questions { margin-top: 28px; }
+#sec-takeaways .take-questions h2 { margin-top: 0; }
+#sec-takeaways .take-saved { color: var(--good); font-weight: 700; min-height: 1.5em; margin: 0.4em 0 0; }
+#sec-takeaways .take-thanks { margin-top: 24px; font-size: 1.1rem; }
+
+@media print {
+  body:has(#sec-takeaways) .topbar,
+  body:has(#sec-takeaways) .pager,
+  #sec-takeaways .take-print,
+  #sec-takeaways .take-saved { display: none !important; }
+  body:has(#sec-takeaways) { background: #fff; color: #000; }
+  body:has(#sec-takeaways) main { max-width: none; padding: 0; }
+  #sec-takeaways, #sec-takeaways * { color: #000 !important; background: #fff !important; box-shadow: none !important; }
+  #sec-takeaways .card, #sec-takeaways .callout { border: 1px solid #999 !important; break-inside: avoid; }
+  #sec-takeaways .take-ideas li { font-size: 14pt; padding: 8px 12px; margin-bottom: 6px; }
+  #sec-takeaways .take-glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  #sec-takeaways .take-glossary div { break-inside: avoid; padding: 4px 0; }
+  #sec-takeaways textarea { border: 1px solid #999 !important; min-height: 8em; }
+  #sec-takeaways .sources a::after { content: " (" attr(href) ")"; }
+}
