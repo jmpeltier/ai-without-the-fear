@@ -3,6 +3,7 @@ import timeline from './sections/timeline.js';
 import nextWord from './sections/next-word.js';
 import tokens from './sections/tokens.js';
 import attention from './sections/attention.js';
+import inference from './sections/inference.js';
 import tinyModel from './sections/tiny-model.js';
 import isIsnt from './sections/is-isnt.js';
 import dataCenters from './sections/data-centers.js';
@@ -12,7 +13,7 @@ import takeaways from './sections/takeaways.js';
 
 const WELCOME_MINUTES = 2;
 
-const SECTIONS = [timeline, nextWord, tokens, attention, tinyModel, isIsnt, dataCenters, safeUse, scams, takeaways]
+const SECTIONS = [timeline, nextWord, tokens, attention, inference, tinyModel, isIsnt, dataCenters, safeUse, scams, takeaways]
   .map((section, i) => ({ ...section, number: i + 1 }));
 
 const byId = new Map(SECTIONS.map((s) => [s.id, s]));

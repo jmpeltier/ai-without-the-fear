@@ -1,6 +1,6 @@
-# Instructor notes: Parts 6 and 7
+# Instructor notes: Parts 7 and 8
 
-## Part 6. What AI is and isn't (7 min)
+## Part 7. What AI is and isn't (6 min)
 
 Talking points:
 - A chatbot is a well-read pattern machine. It is not a search engine, a person, or a crystal ball.
@@ -15,7 +15,7 @@ Play-along moment: "Everyone tap your answer on card 1 before I read the answer.
 Likely question: "If it makes things up, why would I ever use it?"
 Answer: Use it for jobs where you can check the result or where being a little off doesn't hurt: drafting a letter, explaining a word, summarizing something you have in front of you. Don't use it as the final word on facts, names, quotes, or book titles.
 
-## Part 7. Why all the data centers? (7 min)
+## Part 8. Why all the data centers? (7 min)
 
 Talking points:
 - A data center is a warehouse of computers, plus power and cooling. AI uses them twice: training (once, weeks to months on thousands of chips, like writing the cookbook) and answering (every question, all day, like cooking from it).

@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 
 const BASE = process.env.BASE_URL || 'http://localhost:8765/';
-const ROUTES = ['', 'present', 'timeline', 'next-word', 'tokens', 'attention', 'tiny-model', 'is-isnt', 'data-centers', 'safe-use', 'scams', 'takeaways'];
+const ROUTES = ['', 'present', 'timeline', 'next-word', 'tokens', 'attention', 'inference', 'tiny-model', 'is-isnt', 'data-centers', 'safe-use', 'scams', 'takeaways'];
 const VIEWPORTS = [{ name: 'phone', width: 375, height: 800 }, { name: 'desktop', width: 1280, height: 900 }];
 const only = process.argv.slice(2);
 

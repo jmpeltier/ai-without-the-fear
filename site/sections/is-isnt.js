@@ -190,7 +190,7 @@ export default {
   id: 'is-isnt',
   title: "What AI is and isn't",
   icon: '🪞',
-  minutes: 7,
+  minutes: 6,
   render(root, section) {
     root.append(
       sectionHeader(section, 'A chatbot is a very well-read pattern machine. It is not a search engine, a person, or a crystal ball. Let\'s sort the myths from the facts.'),

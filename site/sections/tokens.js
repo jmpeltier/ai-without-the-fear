@@ -73,7 +73,7 @@ export default {
   id: 'tokens',
   title: 'How AI reads: tokens',
   icon: '🧩',
-  minutes: 4,
+  minutes: 3,
   render(root, section) {
     const input = h('input', {
       type: 'text', value: SAMPLES[0], 'aria-label': 'Type a name or sentence', autocomplete: 'off', spellcheck: 'false',

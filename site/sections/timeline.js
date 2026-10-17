@@ -252,7 +252,7 @@ export default {
   id: 'timeline',
   title: 'Where AI came from',
   icon: '🕰️',
-  minutes: 8,
+  minutes: 7,
   render(root, section) {
     const thisYear = new Date().getFullYear();
     const age = thisYear - FIRST_YEAR;

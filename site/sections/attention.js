@@ -101,7 +101,7 @@ export default {
   id: 'attention',
   title: 'The big breakthrough: attention',
   icon: '🔦',
-  minutes: 5,
+  minutes: 4,
   render(root, section) {
     root.append(
       sectionHeader(section, 'In 2017, Google researchers introduced the "transformer." Its trick, called attention, is to read the whole sentence at once and work out which words matter to each other.'),

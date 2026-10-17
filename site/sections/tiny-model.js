@@ -75,7 +75,7 @@ export default {
   id: 'tiny-model',
   title: 'Train a tiny AI',
   icon: '🐣',
-  minutes: 5,
+  minutes: 4,
   render(root, section) {
     let model = null;
     let chosen = TEXTS[0];

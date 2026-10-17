@@ -1,6 +1,6 @@
 # Instructor notes: safety sections
 
-## Part 8. Try it safely (5 min)
+## Part 9. Try it safely (5 min)
 
 - Big idea: a chatbot is like a helpful stranger at the library. Great for questions and letters, but you don't hand it your wallet.
 - Anything typed into a chatbot may be stored on the company's computers. So the rule is simple: no passwords, account numbers, or Social Security numbers. Ever.
@@ -14,7 +14,7 @@
 **Likely question.** "If I already typed something private, is it out there forever?"
 Answer: Not public, but it may be stored. Delete that chat from your history. If it was a password, change the password. If it was a card number, call your bank.
 
-## Part 9. Spot the AI scam (7 min)
+## Part 10. Spot the AI scam (7 min)
 
 - Big idea: AI makes old scams more convincing. A cloned voice, a fake celebrity video, a perfectly written email. The tricks underneath (fear, hurry, secrecy, strange payment) haven't changed.
 - The FBI's December 2024 alert says criminals clone a loved one's voice from short clips and make fake profile photos and celebrity videos. Its first tip is a family secret word.
@@ -28,7 +28,7 @@ Answer: Not public, but it may be stored. Delete that chat from your history. If
 **Likely question.** "What if my grandkid forgets the safe word in a real emergency?"
 Answer: Then hang up and call them, or their parents, on the number you already have. The safe word is a bonus check. Calling back is the real safety net.
 
-## Part 10. Take-home cheat sheet (3 min)
+## Part 11. Take-home cheat sheet (3 min)
 
 - Walk the seven ideas quickly, one sentence each. They recap every part of the class.
 - The glossary is for later. Point out that it's there rather than reading it.
