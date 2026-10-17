@@ -1,0 +1,4 @@
+node_modules/
+verify/shots/
+.claude/
+.DS_Store
