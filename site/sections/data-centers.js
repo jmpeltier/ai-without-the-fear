@@ -45,10 +45,14 @@ const WORLD_TWH = [
   { label: '2030 (projected)', twh: 945 },
 ];
 
-const GEORGIA = [
+const GEORGIA_HEADLINE = [
   { stat: '#2', label: 'Metro Atlanta is the second-largest data center market in the US, behind Northern Virginia (CBRE, end of 2025).' },
+  { stat: '~10,000 MW', label: 'of new power generation state regulators approved for Georgia Power on Dec. 19, 2025, mostly to serve data centers.' },
+];
+
+const GEORGIA_MORE = [
   { stat: '2,076 MW', label: 'of data centers under construction around Atlanta at the end of 2025, more than the 1,459 MW already running (CBRE).' },
-  { stat: '~10,000 MW', label: 'of new power generation the Georgia PSC approved for Georgia Power on Dec. 19, 2025, mostly to serve data centers. About 6,000 MW of it is new gas plants.' },
+  { stat: '~6,000 MW', label: 'of the new generation approved in December 2025 is new gas plants.' },
   { stat: '$474 million', label: 'in state sales tax Georgia did not collect from data centers in fiscal year 2025, under a tax break (state audit, Dec. 2025).' },
 ];
 
@@ -113,6 +117,11 @@ const statTiles = (tiles) => h('div', { class: 'dc-tiles' },
   )),
 );
 
+const more = (topic, ...body) => h('details', { class: 'more' },
+  h('summary', {}, topic),
+  h('div', { class: 'more-body' }, ...body),
+);
+
 function barRow(label, percent, value, extraClass = '') {
   return h('div', { class: 'bar-row' },
     h('span', {}, label),
@@ -126,7 +135,7 @@ function renderRacks() {
   return h('div', { class: 'card' },
     h('p', { class: 'eyebrow' }, 'Power used by one cabinet, running all day'),
     RACKS.map((r) => barRow(r.label, (r.kw / max) * 100, `${fmtSmart(r.kw)} kW`)),
-    h('p', { class: 'dc-caption' }, `One of the newest AI cabinets, about the size of a refrigerator, draws as much power as about ${fmt(Math.round(120 / HOME_AVG_KW / 10) * 10)} average American homes. A big data center holds hundreds or even thousands of them, and all that heat has to be carried away with air or water.`),
+    h('p', { class: 'dc-caption' }, `One new AI cabinet, fridge-sized, uses as much power as about ${fmt(Math.round(120 / HOME_AVG_KW / 10) * 10)} homes. A big data center holds hundreds or thousands, all cooled with air or water.`),
   );
 }
 
@@ -169,7 +178,7 @@ function renderCalculator() {
       h('div', { class: 'callout warn dc-scale' },
         h('p', { class: 'eyebrow' }, 'Now multiply by everyone'),
         h('p', {}, `ChatGPT gets about 2.5 billion questions a day. At ${estimate.wh} Wh each, that is about `, h('strong', {}, `${fmt(dailyKWh / 1000)} megawatt-hours a day`),
-          `. That is about what ${fmt(Math.round(dailyKWh / HOME_KWH_PER_DAY / 1000) * 1000)} average American homes use in a day, for text questions to one chatbot alone.`),
+          `. That is what about ${fmt(Math.round(dailyKWh / HOME_KWH_PER_DAY / 1000) * 1000)} American homes use in a day. Just text, just one chatbot.`),
       ),
     );
   }
@@ -181,31 +190,32 @@ function renderCalculator() {
     h('label', { class: 'dc-slider-label' }, 'How many questions? Slide to change.', slider),
     out,
     h('p', { class: 'dc-caption' },
-      'Both per-question numbers are reported by the companies themselves and have not been independently checked. Researchers debate them. They count text questions only. Making an image or a video uses much more energy, and so do "thinking" models that work through a problem step by step. Training the model in the first place is not included. Comparisons assume a 1,000-watt microwave, a 10-watt LED bulb, and a 15 watt-hour phone battery.'),
+      'Both numbers are company-reported, not independently checked, and researchers debate them. Text questions only. Images, video and step-by-step "thinking" models use much more. Training is not included. Assumes a 1,000-watt microwave, a 10-watt LED bulb and a 15 watt-hour phone battery.'),
   );
 }
 
 function renderCharts() {
   const shareMax = 12;
+  return h('div', { class: 'card' },
+    h('p', { class: 'eyebrow' }, 'Data centers\' share of all US electricity'),
+    US_SHARE.map((s) => h('div', { class: 'bar-row' },
+      h('span', {}, s.label),
+      h('div', { class: 'bar-track dc-range-track' },
+        h('div', { class: 'bar-fill', style: { width: `${(s.low / shareMax) * 100}%` } }),
+        s.high > s.low && h('div', { class: 'dc-range', style: { left: `${(s.low / shareMax) * 100}%`, width: `${((s.high - s.low) / shareMax) * 100}%` } }),
+      ),
+      h('span', { class: 'dc-bar-value' }, s.high > s.low ? `${s.low}–${s.high}%` : `${s.low}%`),
+    )),
+    h('p', { class: 'dc-caption' }, 'The light stripe is the forecast range: 1 in 15 to 1 in 8 units of US power by 2028 (Lawrence Berkeley National Lab).'),
+  );
+}
+
+function renderWorld() {
   const twhMax = Math.max(...WORLD_TWH.map((w) => w.twh));
-  return h('div', { class: 'dc-charts' },
-    h('div', { class: 'card' },
-      h('p', { class: 'eyebrow' }, 'Data centers\' share of all US electricity'),
-      US_SHARE.map((s) => h('div', { class: 'bar-row' },
-        h('span', {}, s.label),
-        h('div', { class: 'bar-track dc-range-track' },
-          h('div', { class: 'bar-fill', style: { width: `${(s.low / shareMax) * 100}%` } }),
-          s.high > s.low && h('div', { class: 'dc-range', style: { left: `${(s.low / shareMax) * 100}%`, width: `${((s.high - s.low) / shareMax) * 100}%` } }),
-        ),
-        h('span', { class: 'dc-bar-value' }, s.high > s.low ? `${s.low}–${s.high}%` : `${s.low}%`),
-      )),
-      h('p', { class: 'dc-caption' }, 'The lighter stripe is the range of the forecast: somewhere between about 1 in 15 and 1 in 8 of every unit of US electricity by 2028. Source: Lawrence Berkeley National Lab for the US Department of Energy.'),
-    ),
-    h('div', { class: 'card' },
-      h('p', { class: 'eyebrow' }, 'Data centers worldwide, terawatt-hours per year'),
-      WORLD_TWH.map((w) => barRow(w.label, (w.twh / twhMax) * 100, fmt(w.twh))),
-      h('p', { class: 'dc-caption' }, 'About 1.5% of the world\'s electricity in 2024. By 2030, roughly what all of Japan uses today. Source: International Energy Agency.'),
-    ),
+  return h('div', { class: 'card' },
+    h('p', { class: 'eyebrow' }, 'Data centers worldwide, terawatt-hours per year'),
+    WORLD_TWH.map((w) => barRow(w.label, (w.twh / twhMax) * 100, fmt(w.twh))),
+    h('p', { class: 'dc-caption' }, 'About 1.5% of the world\'s power in 2024. By 2030, about what Japan uses today (International Energy Agency).'),
   );
 }
 
@@ -225,37 +235,35 @@ export default {
   minutes: 7,
   render(root, section) {
     root.append(
-      sectionHeader(section, 'Every chatbot answer is worked out on a computer in a big warehouse somewhere. Georgia is one of the busiest places in the country for building those warehouses, and people have real questions about it.'),
+      sectionHeader(section, 'Every chatbot answer comes from a building full of computers. Georgia is one of the busiest places in the US for building them.'),
 
       h('h2', {}, 'What is a data center?'),
-      h('p', {}, 'Picture a warehouse full of computers stacked in tall cabinets, plus the power lines to run them and the cooling to keep them from overheating. AI needs these for two jobs:'),
+      h('p', {}, 'A warehouse of computers in tall cabinets, plus power lines and cooling. AI uses it for two jobs:'),
       h('ul', {},
-        h('li', {}, h('strong', {}, 'Training: '), 'teaching the model once. Think of it as writing the cookbook. It takes weeks to months on many thousands of specialized chips.'),
-        h('li', {}, h('strong', {}, 'Answering: '), 'cooking from the cookbook, every time anyone asks anything. Small per question, but it never stops.'),
+        h('li', {}, h('strong', {}, 'Training: '), 'writing the cookbook, once. Weeks to months on thousands of chips.'),
+        h('li', {}, h('strong', {}, 'Answering: '), 'cooking from it, every time anyone asks. Tiny each time, but nonstop.'),
       ),
-      statTiles(BASICS),
+      more('Read more: AI by the numbers', statTiles(BASICS), renderWorld()),
 
       h('h2', {}, 'Why are they so big?'),
-      h('p', {}, 'AI runs on special chips called GPUs, originally built for video-game graphics. They are packed tightly together, they run hot, and they are thirsty for electricity.'),
+      h('p', {}, 'AI runs on chips called GPUs, first built for video games. They run hot and use lots of power.'),
       renderRacks(),
 
       h('h2', {}, 'What does one question cost?'),
-      h('p', {}, 'Pick whose estimate to use, then slide to choose how many questions you might ask.'),
       renderCalculator(),
 
       h('h2', {}, 'The big picture'),
       renderCharts(),
 
       h('h2', {}, 'Here in Georgia'),
-      statTiles(GEORGIA),
-      h('p', {}, 'About 80% of the extra electricity Georgia Power expects to need comes from data centers. The decisions about building power plants and setting your rates are made by the Georgia Public Service Commission (PSC), five commissioners elected statewide.'),
-      h('p', {}, 'In March 2026 the state Senate voted to end the data center sales tax break early, but the bill died in the House. The break runs through 2031. Closer to home, Roswell\'s city council voted unanimously in January 2026 to pause new data center applications for 90 days while it wrote rules. Check with the city for where that stands today.'),
-
-      h('h2', {}, 'Two sides of the story'),
-      renderSides(),
-
-      h('h2', {}, 'What can I do?'),
-      h('div', { class: 'card' },
+      statTiles(GEORGIA_HEADLINE),
+      more('Read more: Georgia in detail',
+        statTiles(GEORGIA_MORE),
+        h('p', {}, 'About 80% of the extra electricity Georgia Power expects to need comes from data centers. The decisions about building power plants and setting your rates are made by the Georgia Public Service Commission (PSC), five commissioners elected statewide.'),
+        h('p', {}, 'In March 2026 the state Senate voted to end the data center sales tax break early, but the bill died in the House. The break runs through 2031. Closer to home, Roswell\'s city council voted unanimously in January 2026 to pause new data center applications for 90 days while it wrote rules. Check with the city for where that stands today.'),
+      ),
+      more('Read more: two sides', renderSides()),
+      more('Read more: what can I do?',
         h('ul', { class: 'dc-todo' },
           h('li', {}, h('strong', {}, 'Tell the PSC what you think. '), 'Anyone can send a public comment on a case before the Commission at ', h('a', { href: 'https://psc.ga.gov/public-comments/', target: '_blank', rel: 'noopener' }, 'psc.ga.gov/public-comments'), '. Comments must arrive at least 24 hours before the vote.'),
           h('li', {}, h('strong', {}, 'Show up locally. '), 'Data centers are approved by city and county zoning boards. Their meetings are public.'),
@@ -266,11 +274,13 @@ export default {
 
       h('div', { class: 'callout' },
         h('p', { class: 'eyebrow' }, 'What this means for you'),
-        h('p', {}, 'Your own questions to a chatbot use a tiny amount of energy. The concern is the scale: billions of questions a day, plus training, plus images and video. That scale is why data centers are coming to Georgia, and why the choices about who pays for them are being made right now, in public.'),
+        h('p', {}, 'Your own questions use a tiny bit of energy. The concern is scale: billions a day, plus training, images and video. Who pays for it in Georgia is being decided now, in public.'),
       ),
 
-      h('p', { class: 'sources' }, 'Sources. Homes-equivalent and per-cabinet comparisons are our own arithmetic from the figures below. ',
-        SOURCES.map(([label, url], i) => [h('a', { href: url, target: '_blank', rel: 'noopener' }, label), i < SOURCES.length - 1 ? '. ' : '.']),
+      more('Sources',
+        h('p', { class: 'sources' }, 'Homes-equivalent and per-cabinet comparisons are our own arithmetic from the figures below. ',
+          SOURCES.map(([label, url], i) => [h('a', { href: url, target: '_blank', rel: 'noopener' }, label), i < SOURCES.length - 1 ? '. ' : '.']),
+        ),
       ),
     );
   },

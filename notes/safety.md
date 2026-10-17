@@ -6,10 +6,10 @@
 - Anything typed into a chatbot may be stored on the company's computers. So the rule is simple: no passwords, account numbers, or Social Security numbers. Ever.
 - "Careful" items, like medical results or a rash photo, are fine once you strip names, dates of birth, and ID numbers. Then check the answer with your doctor.
 - The four big tools (ChatGPT, Claude, Gemini, Copilot) all have free versions and official apps. Show how to check the maker's name in the app store, because look-alike apps charge subscriptions.
-- Settings: most apps have a switch under Settings, then Privacy or Data Controls, about using your chats to train the AI. The wording differs and changes, so the page describes it generically on purpose.
-- Prompt recipe: who you are, what you want, how you want it.
+- Settings and the fake-app subscription detail sit in "Read more: fake apps, privacy" for after class. Mention it exists: most apps have a switch under Settings, then Privacy or Data Controls, about using your chats to train the AI.
+- Prompt recipe: who you are, what you want, how you want it. Three prompts are on screen. Four more are under "More prompts to try".
 
-**Play-along moment.** "Everyone take 90 seconds and sort the eight items. Shout out the one that surprised you." Then have them tap Copy on one starter prompt. Anyone with a chatbot app can paste it in.
+**Play-along moment.** "Everyone take 90 seconds and sort the eight items. The game shows one at a time; tap your answer, then Next. Shout out the one that surprised you." Then have them tap Copy on one starter prompt. Anyone with a chatbot app can paste it in.
 
 **Likely question.** "If I already typed something private, is it out there forever?"
 Answer: Not public, but it may be stored. Delete that chat from your history. If it was a password, change the password. If it was a card number, call your bank.

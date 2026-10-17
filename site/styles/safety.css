@@ -3,11 +3,15 @@
 #sec-safe-use .safe-choices { grid-template-columns: repeat(3, 1fr); }
 #sec-safe-use .safe-choices .choice { text-align: center; padding: 10px 6px; }
 #sec-safe-use .safe-reveal .callout { margin: 4px 0 0; }
-#sec-safe-use .safe-tools { list-style: none; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-#sec-safe-use .safe-tools .card { margin: 0; }
-#sec-safe-use .safe-site { color: var(--ink-soft); }
+#sec-safe-use .safe-item { margin: 0; }
+#sec-safe-use .safe-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+#sec-safe-use .safe-nav .btn:disabled { opacity: 0.45; }
+#sec-safe-use .safe-tools { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }
+#sec-safe-use .safe-tools li { display: flex; flex-direction: column; background: var(--surface-2); border-radius: 12px; padding: 10px 10px; }
+#sec-safe-use .safe-site { color: var(--ink-soft); font-size: 0.95rem; }
 #sec-safe-use .safe-settings dt { font-weight: 700; margin-top: 0.8em; }
 #sec-safe-use .safe-settings dd { margin: 0.2em 0 0; }
+#sec-safe-use .safe-tips p { margin: 0 0 0.5em; }
 #sec-safe-use .safe-tips ol { margin: 0; padding-left: 1.3em; }
 #sec-safe-use .safe-tips li { margin-bottom: 0.5em; }
 #sec-safe-use .safe-eg { color: var(--ink-soft); font-style: italic; }

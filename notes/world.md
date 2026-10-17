@@ -21,9 +21,9 @@ Talking points:
 - A data center is a warehouse of computers, plus power and cooling. AI uses them twice: training (once, weeks to months on thousands of chips, like writing the cookbook) and answering (every question, all day, like cooking from it).
 - Scale is the whole story. ChatGPT alone had 900 million weekly users (OpenAI, Feb. 2026) and about 2.5 billion questions a day (OpenAI, July 2025).
 - One question is tiny: about 0.24 Wh (Google, Gemini median text prompt) or 0.34 Wh (OpenAI, average). Stress that these are company-reported and not independently checked. Images, video, and "thinking" models use more.
-- Metro Atlanta is the second-largest data center market in the US (CBRE, end of 2025), with more under construction (2,076 MW) than already running (1,459 MW).
+- Metro Atlanta is the second-largest data center market in the US (CBRE, end of 2025). On screen are two tiles. The rest (2,076 MW under construction, the tax break, Roswell's pause) is in "Read more: Georgia in detail".
 - In Dec. 2025 the Georgia PSC approved nearly 10,000 MW of new generation for Georgia Power, mostly to serve data centers. The fight is over who pays if the demand doesn't show up.
-- Stay neutral. Read both columns of "Two sides of the story" aloud. Roswell itself paused new data centers in January 2026 to write rules, so people in the room may have strong views.
+- Stay neutral. "Two sides", "What can I do?" and the sources are folded for after class. If time allows, open "Read more: two sides" and read both columns aloud. Roswell itself paused new data centers in January 2026 to write rules, so people in the room may have strong views.
 
 Play-along moment: "Slide the calculator to how many questions you think you'd ask in a month. Now look at the yellow box: that's everyone." Ask the room to compare their number to the microwave seconds.
 
